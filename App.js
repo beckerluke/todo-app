@@ -1,12 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      todoInput: '',
+      todo: [ 
+        {
+          id: 0,
+          task: 'Fix TV',
+          done: false,
+        },
+        {
+          id: 1,
+          task:'Cook some chili',
+          done: false,
+        }
+      ]
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>To do</Text>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
