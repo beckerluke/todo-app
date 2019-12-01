@@ -15,6 +15,12 @@ const styles = StyleSheet.create({
         height: 60,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    title: {
+        color: '#ebedf0',
+        fontSize: 30,
+        fontWeight: '900',
+        textTransform: 'uppercase',
     }
 });
 
