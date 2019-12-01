@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 
 export default class App extends Component {
   constructor() {
@@ -23,9 +23,14 @@ export default class App extends Component {
   }
 
   render() {
+    const statusbar = (Platform.OS == 'ios') ?
+      <View style={styles.statusbar}></View> : <View></View>;
+    
+
+    
     return (
       <View style={styles.container}>
-        <View style={styles.statusbar}></View>
+        {statusbar}
       </View>
     );
   }
