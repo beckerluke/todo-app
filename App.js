@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
+import Header from './components/Header';
 
 export default class App extends Component {
   constructor() {
@@ -23,14 +24,16 @@ export default class App extends Component {
   }
 
   render() {
+    // if platform is ios, use statusbar styles
     const statusbar = (Platform.OS == 'ios') ?
       <View style={styles.statusbar}></View> : <View></View>;
-    
+     
 
     
     return (
       <View style={styles.container}>
         {statusbar}
+        <Header />
       </View>
     );
   }
