@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import Header from './components/Header';
+import InputBar from './components/InputBar';
 
 export default class App extends Component {
   constructor() {
@@ -34,6 +35,7 @@ export default class App extends Component {
       <View style={styles.container}>
         {statusbar}
         <Header title='Todo List'/>
+        <InputBar />
       </View>
     );
   }
