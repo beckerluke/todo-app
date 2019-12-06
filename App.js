@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, FlatList, View } from 'react-native';
 import Header from './components/Header';
 import InputBar from './components/InputBar';
+import TodoItem from './components/TodoItem';
 
 export default class App extends Component {
   constructor() {
@@ -25,18 +26,19 @@ export default class App extends Component {
   }
 
   addNewTodo() {
-    let todos = this.state.todos;
+    // let todos = this.state.todos;
 
-    todos.unshift({
-      id: todos.length + 1,
+    this.state.todos.unshift({
+      id: this.state.todos.length + 1,
       task: this.state.todoInput,
       done: false,
     });
     
     this.setState({
-      todos,
+      ...this.state.todos,
       // reset todoInput once button is clicked
       todoInput: '',
+
     }, () => {console.log(this.state)} );
   }
 
@@ -52,21 +54,22 @@ export default class App extends Component {
         {statusbar}
         <Header title='Todo List'/>
         <InputBar 
-          textChange={(todoInput) => this.setState({todoInput})}
+          textChange={todoInput => this.setState({todoInput})}
           addNewTodo={() => this.addNewTodo()}
+          todoInput={this.state.todoInput}
         />
         
         {/*passing todos array */}
         <FlatList 
           data={this.state.todos}
-          keyExtractor={(item, index) => {index.toString()}}
-          renderItem={(item, index) => {
+          extraData={this.state}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({item, index}) => {
             return (
-              <TodoItem />
+              <TodoItem todoItem={item}/>
             )
           }}
-          >
-        </FlatList>
+        />
       </View>
     );
   }
