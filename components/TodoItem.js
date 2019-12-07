@@ -5,10 +5,15 @@ export default class TodoItem extends Component {
     constructor (props) {
         super(props);
     }
+
+
     render() {
         const todoItem = this.props.todoItem;
         return(
-            <TouchableOpacity style={styles.todoItem}>
+            <TouchableOpacity 
+                style={styles.todoItem}
+                onPress={() => this.props.toggleDone()}
+            >
                 <Text style={(todoItem.done) ? {color: '#7d8a81'} : {color: '#070708'} }>
                     {todoItem.task}
                 </Text>

@@ -25,6 +25,20 @@ export default class App extends Component {
     }
   }
 
+  // toggles the color when todo item in list is clicked
+  toggleDone(item) {
+    const todos = this.state.todos.map((todo) => {
+      if (todo.id === item.id) {
+        todo.done = !todo.done;
+      }
+      return todo;
+    });
+    
+    this.setState({
+      todos,
+    })
+  }
+  // fires off when 'ADD' is clicked
   addNewTodo() {
     // let todos = this.state.todos;
 
@@ -66,7 +80,10 @@ export default class App extends Component {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({item, index}) => {
             return (
-              <TodoItem todoItem={item}/>
+              <TodoItem 
+                todoItem={item}
+                toggleDone={() => this.toggleDone(item)}
+              />
             )
           }}
         />
