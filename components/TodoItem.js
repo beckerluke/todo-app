@@ -19,7 +19,7 @@ export default class TodoItem extends Component {
                 </Text>
                 <Button 
                     title="Delete"
-                    color={(todoItem.done) ? '#d60d0d' : '#070708'}
+                    color={(todoItem.done) ? '#fa8684' : '#d60d0d' }
                 />
             </TouchableOpacity>
         )
