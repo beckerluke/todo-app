@@ -17,6 +17,10 @@ export default class TodoItem extends Component {
                 <Text style={(todoItem.done) ? {color: '#7d8a81'} : {color: '#070708'} }>
                     {todoItem.task}
                 </Text>
+                <Button 
+                    title="Delete"
+                    color={(todoItem.done) ? '#d60d0d' : '#070708'}
+                />
             </TouchableOpacity>
         )
     }
@@ -30,6 +34,6 @@ const styles = StyleSheet.create({
         borderBottomWidth: 2,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
     }
 })

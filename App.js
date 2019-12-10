@@ -27,13 +27,15 @@ export default class App extends Component {
 
   // toggles the color when todo item in list is clicked
   toggleDone(item) {
+    console.log(`This is the ITEM: ${item}`);
+    
     const todos = this.state.todos.map((todo) => {
       if (todo.id === item.id) {
         todo.done = !todo.done;
       }
       return todo;
     });
-    
+
     this.setState({
       todos,
     })
