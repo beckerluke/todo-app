@@ -58,6 +58,14 @@ export default class App extends Component {
     }, () => {console.log(this.state)} );
   }
 
+  deleteItem(item) {
+    const todos = this.state.todos.filter((todo) => todo.id !== item.id);
+
+    this.setState({
+      todos,
+    })
+  }
+
   render() {
     // if platform is ios, use statusbar styles
     const statusbar = (Platform.OS == 'ios') ?
@@ -85,6 +93,7 @@ export default class App extends Component {
               <TodoItem 
                 todoItem={item}
                 toggleDone={() => this.toggleDone(item)}
+                deleteItem={() => this.deleteItem(item)}
               />
             )
           }}

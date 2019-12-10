@@ -20,6 +20,7 @@ export default class TodoItem extends Component {
                 <Button 
                     title="Delete"
                     color={(todoItem.done) ? '#fa8684' : '#d60d0d' }
+                    onPress={() => this.props.deleteItem()}
                 />
             </TouchableOpacity>
         )
